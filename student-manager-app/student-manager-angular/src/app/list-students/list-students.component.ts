@@ -28,6 +28,8 @@ export class ListStudentsComponent {
         this.isLoadingComplete = true;
       });
       console.log("Po wywolaniu studentService");
+
+      return true;
     }
 
     handleClick(){
