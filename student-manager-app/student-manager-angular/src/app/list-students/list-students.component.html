@@ -1,0 +1,38 @@
+<h4>{{title}}</h4>
+<button (click)="handleClick()"  class="btn btn-primary">{{collapseText}}</button>
+
+<p *ngIf="isTextDisplayed">Tabela przedstawiająca liste studentów</p>
+
+<div *ngIf="isLoadingComplete == false" class="spinner-grow text-primary" 
+style="position:absolute;left:50%;top:50%" role="status">
+</div>
+
+<table *ngIf="isLoadingComplete == true" class="table table-striped table-hover">
+    <!-- Nagłówek -->
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imię i nazwisko</th>
+            <th>Adres email</th>
+            <th>Operacje</th>
+        </tr>
+    </thead>
+    <!-- Zawartosc - wiersze z rekordami -->
+    <tbody class="table-group-divider">
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>
+                <p *ngIf="student.id > 2">{{student.name}}</p>
+            </td>
+            <td>{{student.email}}</td>
+            <td>
+                <button class="btn btn-outline-warning">Edytuj</button>
+                <button style="margin-left:5px" class="btn btn-outline-danger">Usuń</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngFor="let student of students">
+    <p>{{student.name}}</p>
+</div>

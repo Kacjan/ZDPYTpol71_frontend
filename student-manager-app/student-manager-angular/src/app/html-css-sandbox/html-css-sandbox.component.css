@@ -1,0 +1,28 @@
+p{
+   color:red; 
+}
+
+h1{
+    font-size:10px;
+}
+
+h6{
+    font-size:40px;
+    font-weight:300;
+}
+
+.custom-class{
+    color:blue;
+    /* border-style:dotted;
+    border-color:red;
+    border-width:2px; */
+    border: dotted 2px red;
+}
+
+.margin-left-20{
+    margin-left:20px;
+}
+
+#action-google{
+    margin-left:50px;
+}
