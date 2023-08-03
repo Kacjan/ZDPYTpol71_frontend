@@ -7,6 +7,10 @@
 style="position:absolute;left:50%;top:50%" role="status">
 </div>
 
+<div *ngIf="isDeletedSuccessful" class="alert alert-danger alert-margin-top-10">
+    Usunięto studenta!
+</div>
+
 <table *ngIf="isLoadingComplete == true" class="table table-striped table-hover">
     <!-- Nagłówek -->
     <thead>
@@ -19,15 +23,16 @@ style="position:absolute;left:50%;top:50%" role="status">
     </thead>
     <!-- Zawartosc - wiersze z rekordami -->
     <tbody class="table-group-divider">
-        <tr *ngFor="let student of students">
+        <tr *ngFor="let student of students" [ngClass]="{'table-danger' : getReturnStudentWithId(student),
+            'table-warning': student.id >= 9}">
             <td>{{student.id}}</td>
             <td>
-                <p *ngIf="student.id > 2">{{student.name}}</p>
+                <p *ngIf="student.id > 2">{{student.name | uppercase | lowercase | uppercase }}</p>
             </td>
-            <td>{{student.email}}</td>
+            <td>{{student.email | lowercase}}</td>
             <td>
-                <button class="btn btn-outline-warning">Edytuj</button>
-                <button style="margin-left:5px" class="btn btn-outline-danger">Usuń</button>
+                <a [routerLink]="'/edit-student/'+ student.id"  class="btn btn-outline-warning">Edytuj</a>
+                <button (click)="delete(student.id)" style="margin-left:5px" class="btn btn-outline-danger">Usuń</button>
             </td>
         </tr>
     </tbody>

@@ -1,0 +1,25 @@
+<h4>Edytuj studenta</h4>
+
+<div *ngIf="isSuccess" class="alert alert-success">
+  Edytowano studenta!
+</div>
+
+<form (ngSubmit)="save()">
+  <!-- Imię i nazwisko -->
+  <div>
+    <label class="form-label">Imię i nazwisko studenta</label>
+    <input class="form-control" type="text" [(ngModel)]="student.name" name="studentName" />
+  </div>
+
+  <!-- Adres email -->
+  <div>
+    <label class="form-label">Adres email</label>
+    <input class="form-control" type="email" [(ngModel)]="student.email" name="studentEmail" />
+  </div>
+
+  <button class="btn btn-primary" style="margin-top:10px">
+    Zapisz
+  </button>
+  <button type="reset" class="btn btn-secondary" 
+    style="margin-left:10px;margin-top:10px">Wyczyść</button>
+</form>

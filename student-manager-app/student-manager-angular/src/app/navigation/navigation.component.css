@@ -1,3 +1,8 @@
 .custom-background{
     background-color: olivedrab !important;
 }
+
+.selected-nav{
+    color:black;
+    font-weight: bold;
+}
